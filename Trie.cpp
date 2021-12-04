@@ -21,3 +21,48 @@ public:
         return false;
     }
 };
+//--------------------------------------------------------------------------------
+class trieNode{//normal
+    public:
+    trieNode*child [26];
+    // int weight;
+    bool isEnd;
+
+//     constructor
+    trieNode()
+    {
+        // weight = 0;
+        for(int i=0;i<26;i++)
+        {
+            child[i] = NULL;
+        }
+    }
+};
+
+// void insert(string s,int weight,trieNode*root)
+void insert(string s,trieNode*root)
+{
+    //----------iterative------------
+    trieNode*curr = root;
+    for(int i=0;i<s.length();i++)
+    {
+        int index = s[i]-'a';       
+        // if(curr->weight < weight)
+        // {
+        //     curr->weight = weight;
+        // }
+        if(curr->child[index] == NULL)
+        {
+            curr->child[index] = new trieNode();
+            // curr->child[index]->weight = weight;
+            curr = curr->child[index];            
+        }
+        // else
+        // {
+        //     curr->weight = max(weight,curr->weight);
+        //     curr = curr->child[index];
+        // }
+        
+   }
+    curr->isEnd =true;
+}
